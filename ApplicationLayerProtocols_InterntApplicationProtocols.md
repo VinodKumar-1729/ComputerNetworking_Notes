@@ -202,3 +202,77 @@ Continuing with the remaining important application layer protocols:
 ---
 
 This concludes the detailed explanation of important **Application Layer Protocols**. Each of these protocols plays a vital role in enabling different types of communication, data transfer, and network management in computer networks. 
+
+
+### Internet application protocols 
+
+### 1. **HTTP (Hypertext Transfer Protocol)**
+  
+  
+### 2. **HTTPS (HTTP Secure)**
+   
+
+### 3. **DNS (Domain Name System)**
+   
+
+### 4. **SMTP (Simple Mail Transfer Protocol)**
+  
+
+### 5. **IMAP (Internet Message Access Protocol)**
+  
+
+### 6. **POP3 (Post Office Protocol v3)**
+  
+
+### 7. **FTP (File Transfer Protocol)**
+
+### 8. **SFTP (Secure File Transfer Protocol)**
+   - **Concept**: SFTP is a secure version of FTP that uses SSH (Secure Shell) to encrypt data transfer, ensuring security over the network.
+   - **Sub-Concepts**:
+     - **SSH Tunneling**: SFTP operates within an encrypted SSH session, providing secure file transfer, unlike FTP, which transmits data in plaintext.
+     - **Authentication**: Uses SSH keys or passwords for authentication.
+   - **Example**: A system administrator uses SFTP to securely transfer configuration files to a remote server over the internet.
+
+### 9. **Telnet**
+  
+### 10. **SSH (Secure Shell)**
+   - **Concept**: SSH provides a secure, encrypted way to remotely log into a machine and execute commands, replacing Telnet for secure communications.
+   - **Sub-Concepts**:
+     - **Encryption**: SSH encrypts all data transferred, ensuring confidentiality and integrity.
+     - **Key-Based Authentication**: SSH can use public-private key pairs for authentication, enhancing security.
+     - **Tunneling**: SSH can be used to create secure tunnels for transferring other protocols (e.g., HTTP, FTP) over an encrypted connection.
+   - **Example**: A developer uses SSH to securely log into a cloud server to deploy code or manage applications.
+
+### 11. **LDAP (Lightweight Directory Access Protocol)**
+  
+### 12. **DHCP (Dynamic Host Configuration Protocol)**
+   
+### 13. **NTP (Network Time Protocol)**
+
+### 14. **SNMP (Simple Network Management Protocol)**
+
+### 15. **RIP (Routing Information Protocol)**
+  
+
+### 16. **BGP (Border Gateway Protocol)**
+  
+### 17. **RDP (Remote Desktop Protocol)**
+   - **Concept**: RDP is a protocol developed by Microsoft to allow users to connect to and control another computer over a network connection using a graphical interface.
+   - **Sub-Concepts**:
+     - **Remote Control**: Users can see and interact with the desktop of the remote machine as if they were physically present.
+     - **Secure Connection**: RDP uses encryption to secure the communication between the client and the remote server.
+   - **Example**: A user at home can use RDP to connect to their work computer and access files or run applications as if they were sitting in front of it.
+
+### 18. **TFTP (Trivial File Transfer Protocol)**
+  
+### 19. **VoIP (Voice over Internet Protocol)**
+   - **Concept**: VoIP allows voice communication over IP networks (e.g., the internet) instead of traditional telephone lines.
+   - **Sub-Concepts**:
+     - **Codec**: VoIP uses audio codecs to compress and decompress voice signals to make them suitable for transmission over IP networks.
+     - **SIP (Session Initiation Protocol)**: A protocol used to establish, manage, and terminate VoIP calls.
+     - **RTP (Real-time Transport Protocol)**: Used for transmitting audio and video over IP networks during VoIP calls.
+   - **Example**: Applications like Skype or Zoom use VoIP to enable users to make voice and video calls over the internet.
+
+---
+
+This concludes the detailed breakdown of key internet application protocols. These protocols, collectively, form the backbone of communication over networks, enabling tasks like web browsing, file transfer, email communication, network management, and more.
