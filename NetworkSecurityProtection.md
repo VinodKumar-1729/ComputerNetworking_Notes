@@ -43,8 +43,6 @@ Firewalls filter traffic using different methods:
    - Suitable for small to medium-sized organizations.
    - Example: A UTM firewall might scan for malware, block phishing sites, and manage VPNs, all within one platform.
 
-**Diagram of Firewall Types**:  
-I will provide a diagram showing different firewall types and how they fit into network architecture.
 
 ---
 
