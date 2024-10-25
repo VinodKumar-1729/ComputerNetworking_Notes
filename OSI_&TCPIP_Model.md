@@ -194,3 +194,9 @@ The TCP/IP model is simpler than the **OSI model**, which has **seven layers** (
 ---
 
 This concludes the detailed explanation of the TCP/IP model, with each layer and its protocols.
+
+
+**GFG Link for OSI Model :** https://www.geeksforgeeks.org/open-systems-interconnection-model-osi/
+
+**GFG Link for TCP/IP Model :** https://www.geeksforgeeks.org/tcp-ip-model/
+
