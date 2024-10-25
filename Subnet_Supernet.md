@@ -116,3 +116,10 @@ Both subnetting and supernetting often use CIDR, which allows for flexible alloc
 ---
 
 This explanation covers the fundamental concepts of **subnetting** and **supernetting**. 
+
+
+**GFG link for Subnetting :** https://www.geeksforgeeks.org/introduction-to-subnetting/?ref=next_article
+
+**GFG Link for supernetting :** https://www.geeksforgeeks.org/supernetting-in-network-layer/
+
+
