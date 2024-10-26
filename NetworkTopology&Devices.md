@@ -120,3 +120,5 @@ Each topology has its own characteristics, and selecting the best one depends on
 
 
 **GFG Link for Network Topologies:** https://www.geeksforgeeks.org/types-of-network-topology/
+
+**GFG Link for Network Devices :** https://www.geeksforgeeks.org/network-devices-hub-repeater-bridge-switch-router-gateways/
