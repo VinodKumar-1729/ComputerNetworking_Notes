@@ -105,3 +105,5 @@ In computer networking, networks can be classified based on their size, geograph
      - **DNS (Domain Name System)**: Translates domain names (like google.com) into IP addresses.
 
 ---
+
+**GFG Link for Types of Network :** https://www.geeksforgeeks.org/types-of-computer-networks/
