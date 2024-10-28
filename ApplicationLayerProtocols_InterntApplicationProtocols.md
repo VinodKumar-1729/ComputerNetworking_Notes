@@ -1,278 +1,199 @@
-In computer networking, **Application Layer Protocols** are protocols used to enable communication between application programs across networks. They operate in the topmost layer of the OSI model (7th layer) and the TCP/IP model (Application layer). These protocols help applications (like web browsers, email clients, etc.) use network services to send and receive data.
+### **1. DNS (Domain Name System)**
+The Domain Name System (DNS) translates human-readable domain names (like "example.com") into IP addresses that computers use to identify each other on a network.
 
-Here’s a detailed breakdown of some key application layer protocols:
+**DNS Resolution Process:**
+1. **Client Query:** When a user enters a URL in their browser, a DNS query is sent to resolve the domain to an IP address.
+2. **Recursive Resolver:** The query first reaches a DNS resolver, which starts the resolution by querying DNS servers on behalf of the client.
+3. **Root Server:** If the resolver doesn’t know the IP, it contacts a root server, which directs it to the Top-Level Domain (TLD) server (e.g., .com, .org).
+4. **TLD Server:** The TLD server responds with the IP address of the authoritative DNS server responsible for the domain.
+5. **Authoritative DNS Server:** This server returns the IP address associated with the domain to the resolver.
+6. **Caching:** The resolver sends the IP to the client and caches it to respond faster to future requests.
 
----
-
-### 1. **HTTP (HyperText Transfer Protocol)**
-   - **Purpose**: Used for transmitting web pages over the internet.
-   - **Port**: TCP Port 80 (HTTP) and TCP Port 443 (HTTPS for secure transmission).
-   - **How it Works**: 
-     - Web browsers (clients) request data (like HTML, CSS, images) from web servers using HTTP.
-     - It follows a client-server model where the client initiates a request and the server responds with the requested resource.
-   - **Components**:
-     - **Request Methods**: GET, POST, PUT, DELETE, HEAD, OPTIONS.
-       - **GET**: Requests a resource (like a webpage).
-       - **POST**: Submits data (like form data) to the server.
-       - **PUT**: Uploads a file or updates a resource.
-     - **Response Codes**: 200 (OK), 404 (Not Found), 500 (Internal Server Error).
-     - **Cookies and Sessions**: HTTP is stateless, so cookies and sessions are used to remember user information between requests.
-   - **Example**:
-     - When you type a URL (like `http://www.example.com`), the browser sends a GET request to the web server, which responds with the webpage content.
+**Important Points for Exam:**
+- DNS works on port 53 (UDP for most queries and TCP for zone transfers).
+- Types of DNS Records: **A, AAAA, CNAME, MX, TXT,** and **PTR** records.
+- **Reverse DNS (PTR Records):** Maps IP addresses back to domain names.
+- DNS vulnerabilities include **DNS spoofing** and **DNS amplification attacks**.
 
 ---
 
-### 2. **HTTPS (HyperText Transfer Protocol Secure)**
-   - **Purpose**: Secure version of HTTP; used for secure communication over the web.
-   - **Port**: TCP Port 443.
-   - **How it Works**:
-     - HTTPS uses SSL/TLS (Secure Socket Layer/Transport Layer Security) to encrypt data between the client and server.
-     - This ensures confidentiality, integrity, and authenticity of data.
-   - **Example**: Online banking websites use HTTPS to encrypt sensitive user data like passwords and account information.
+#### **2. HTTP/HTTPS (Hypertext Transfer Protocol / Secure)**
+HTTP and HTTPS are protocols for transmitting hypertext (web pages) over the internet.
+
+**How HTTP Works:**
+1. **Client Request:** The client (browser) sends an HTTP request to the server using methods like GET, POST, PUT, and DELETE.
+2. **Server Response:** The server processes the request and sends an HTTP response with the requested content (web page, image, etc.) or error messages (e.g., 404 Not Found).
+3. **Stateless Protocol:** Each request-response cycle is independent, meaning HTTP has no memory of previous interactions unless supported by cookies or sessions.
+
+**HTTPS:**
+HTTPS is the secure version of HTTP, encrypting data between client and server to prevent interception.
+1. **TLS/SSL Encryption:** HTTPS uses SSL/TLS certificates to establish a secure, encrypted connection.
+2. **Secure Port 443:** While HTTP uses port 80, HTTPS operates on port 443.
+3. **Digital Certificates:** HTTPS requires an SSL/TLS certificate that validates the website’s identity, enhancing trust.
+
+**Key Differences:**
+- **Security:** HTTPS is encrypted, while HTTP is not.
+- **Use of Certificates:** HTTPS requires SSL/TLS certificates for encryption, HTTP does not.
+- **Ports:** HTTP operates on port 80, HTTPS on port 443.
+
+**Important Points for Exam:**
+- **HTTP Methods:** Know the purposes of GET, POST, PUT, DELETE, OPTIONS, and HEAD.
+- **Status Codes:** Familiarize yourself with codes like 200 (OK), 404 (Not Found), 500 (Internal Server Error), and 301 (Permanent Redirect).
+- HTTPS supports **end-to-end encryption**, protecting data from eavesdropping.
 
 ---
 
-### 3. **DNS (Domain Name System)**
-   - **Purpose**: Translates domain names (like `www.example.com`) into IP addresses (like `192.0.2.1`), enabling users to access websites by name.
-   - **Port**: UDP Port 53 (sometimes TCP).
-   - **Components**:
-     - **Domain Names**: Human-readable addresses (e.g., `example.com`).
-     - **IP Address**: Numeric address of the server (e.g., `192.0.2.1`).
-     - **DNS Records**:
-       - **A Record**: Maps a domain name to an IPv4 address.
-       - **AAAA Record**: Maps a domain name to an IPv6 address.
-       - **CNAME**: Maps one domain name to another (alias).
-       - **MX Record**: Mail exchange record, used for email routing.
-   - **Example**:
-     - When you type `www.example.com`, the browser sends a DNS query to a DNS server, which returns the corresponding IP address.
----
+#### **3. FTP (File Transfer Protocol)**
+FTP is a standard network protocol used to transfer files between a client and server over the internet.
 
-### 4. **SMTP (Simple Mail Transfer Protocol)**
-   - **Purpose**: Used to send emails from clients to mail servers and between mail servers.
-   - **Port**: TCP Port 25 (unencrypted) and TCP Port 465/587 (encrypted, using TLS/SSL).
-   - **How it Works**:
-     - SMTP works as a push protocol, delivering messages from a client (email sender) to a receiving server.
-     - It can send emails, but it doesn’t retrieve them (retrieving is done by protocols like POP3 or IMAP).
-   - **Components**:
-     - **MTA (Mail Transfer Agent)**: Moves emails between servers.
-     - **MUA (Mail User Agent)**: The client-side application (like Outlook or Gmail).
-   - **Example**:
-     - When you send an email, your email client sends the message to the server using SMTP, which relays it to the recipient’s mail server.
----
+**Functions of FTP:**
+- **File Transfer:** Allows users to upload or download files to/from a remote server.
+- **Directory Navigation:** FTP allows users to navigate directories on the remote server.
+- **File Management:** Users can create, delete, or move files on the server.
 
-### 5. **FTP (File Transfer Protocol)**
-   - **Purpose**: Used to transfer files between a client and a server over a network.
-   - **Port**: TCP Port 20 (data transfer) and TCP Port 21 (control commands).
-   - **How it Works**:
-     - FTP uses two channels: one for commands and one for data transfer.
-     - **Active FTP**: The client opens a port and waits for the server to connect back.
-     - **Passive FTP**: The server opens a port, and the client connects to it.
-   - **Components**:
-     - **FTP Client**: A program or command-line tool to upload/download files.
-     - **FTP Server**: A remote server that stores files and handles file requests.
-   - **Example**:
-     - Web developers use FTP to upload website files from their local system to a web server.
+**Security Issues:**
+- **Unencrypted Transmission:** FTP transmits data in plaintext, making it vulnerable to eavesdropping and interception.
+- **Vulnerable Credentials:** Usernames and passwords are also transmitted unencrypted, allowing attackers to capture credentials.
+- **Passive Mode Issues:** Passive mode helps with firewalls but can expose the server to additional vulnerabilities.
+
+**Secure Alternatives:**
+- **SFTP (SSH File Transfer Protocol):** FTP over SSH for secure file transfer.
+- **FTPS (FTP Secure):** FTP over TLS/SSL, which encrypts the data but may be less commonly used.
+
+**Important Points for Exam:**
+- FTP uses **port 21 for control** and **port 20 for data transfer** (active mode).
+- **Active vs. Passive Modes:** In active mode, the client opens a port to receive data; in passive mode, the server opens a port.
+- **Security Alternatives:** SFTP and FTPS are essential to know as secure versions of FTP.
 
 ---
 
-### 6. **IMAP (Internet Message Access Protocol)**
-   - **Purpose**: Used for retrieving emails from a mail server while keeping them stored on the server.
-   - **Port**: TCP Port 143 (unencrypted) and TCP Port 993 (encrypted with SSL/TLS).
-   - **How it Works**:
-     - IMAP allows users to read emails stored on the server without downloading them. This is useful for accessing emails across multiple devices.
-   - **Components**:
-     - **Mail Client**: The application used to access emails (like Outlook, Gmail).
-     - **Mail Server**: The server that stores the emails.
-   - **Example**:
-     - IMAP is useful when you want to access the same email account from multiple devices (like your phone, laptop, and tablet), as emails remain on the server.
+### **4. SMTP (Simple Mail Transfer Protocol)**
+SMTP is the protocol used to send emails between servers and from client to server.
+
+**SMTP’s Role in Email Transmission:**
+- **Client-to-Server:** When a user sends an email, the client (like Outlook) uses SMTP to transmit the email to the server.
+- **Server-to-Server:** SMTP is used to transfer emails between mail servers.
+- **Mail Delivery Agent (MDA):** SMTP transfers the message to the MDA, which routes it to the recipient's mailbox.
+
+**Ports and Security:**
+- **Ports 25 (Unsecured) and 587 (Secure):** Port 25 is for unencrypted SMTP, while 587 is often used for encrypted connections.
+- **Authentication:** SMTP-AUTH is a mechanism to secure SMTP by requiring authentication.
+
+**Important Points for Exam:**
+- SMTP operates on **port 25** (unencrypted) and **port 587 or 465** (for encrypted).
+- **SMTP Commands:** Know basic commands like HELO, MAIL, RCPT, and DATA.
+- SMTP only supports **outgoing mail transfer**, not retrieval.
 
 ---
 
-### 7. **POP3 (Post Office Protocol 3)**
-   - **Purpose**: Used to retrieve emails from a server and store them locally on the client’s device.
-   - **Port**: TCP Port 110 (unencrypted) and TCP Port 995 (encrypted).
-   - **How it Works**:
-     - POP3 downloads the email to your local device and often deletes it from the server (depending on settings).
-     - POP3 is useful for offline access to emails, but it doesn’t support synchronization between devices.
-   - **Example**:
-     - You can use POP3 if you want to download emails and access them offline, without keeping them on the mail server.
+### **5. POP3 and IMAP**
+POP3 (Post Office Protocol 3) and IMAP (Internet Message Access Protocol) are used to retrieve emails from a mail server.
+
+**POP3 (Post Office Protocol 3):**
+- **Simple Retrieval:** Downloads emails to the client and often deletes them from the server.
+- **Offline Access:** Allows offline access once emails are downloaded.
+- **Storage:** Limited to single device access; emails are stored locally.
+
+**IMAP (Internet Message Access Protocol):**
+- **Server Storage:** Keeps emails on the server, allowing access from multiple devices.
+- **Synchronization:** Any action (read, delete, move) is synced across devices.
+- **Ideal for Webmail:** Provides folder structures and allows selective downloading.
+
+**Key Differences:**
+- **POP3** is simpler, downloading emails to a single device and removing them from the server.
+- **IMAP** supports multiple devices with server-stored emails, ideal for modern email clients.
+
+**Important Points for Exam:**
+- **Ports:** POP3 uses port 110 (unencrypted) and port 995 (encrypted); IMAP uses port 143 (unencrypted) and port 993 (encrypted).
+- **Synchronization:** IMAP synchronizes actions across all devices.
 
 ---
 
-This covers the initial set of important application layer protocols.
+### **6. Telnet**
+Telnet is an older protocol used to access and manage devices remotely over a network by providing a command-line interface on the remote device.
 
-Continuing with the remaining important application layer protocols:
+**Functionality:**
+- **Remote Access:** Enables users to execute commands on remote systems as though they are locally present.
+- **Plaintext Communication:** Transmits data in unencrypted form, exposing it to potential interception.
+- **CLI Access:** Provides direct command-line access to servers, network devices, and other systems.
 
----
+**Security Concerns:**
+- **Unencrypted Transmission:** Since Telnet transmits data in plaintext, both the session and login credentials can be easily intercepted by attackers.
+- **Deprecated Use:** Telnet is rarely used today due to its security vulnerabilities; secure alternatives like SSH are preferred.
 
-### 8. **Telnet (Telecommunication Network Protocol)**
-   - **Purpose**: Provides remote access to another machine over a network, typically for system administration or troubleshooting.
-   - **Port**: TCP Port 23.
-   - **How it Works**:
-     - Telnet allows a user to log in to a remote system and execute commands as if they were locally present.
-     - Telnet doesn’t encrypt data, making it insecure for sensitive operations.
-   - **Components**:
-     - **Telnet Client**: The application that initiates the remote connection.
-     - **Telnet Server**: The remote system accepting the connection.
-   - **Example**:
-     - System administrators used Telnet to configure routers, switches, or troubleshoot servers remotely. However, it has largely been replaced by SSH for secure access.
-
----
-
-### 9. **SSH (Secure Shell)**
-   - **Purpose**: Provides secure remote login and command execution over a network.
-   - **Port**: TCP Port 22.
-   - **How it Works**:
-     - SSH encrypts all communications between the client and server, ensuring confidentiality, integrity, and authentication.
-     - It uses public-key cryptography to establish a secure connection.
-   - **Components**:
-     - **SSH Client**: Initiates the secure connection.
-     - **SSH Server**: Accepts incoming SSH connections.
-     - **Key Pairs**: Public and private keys used for authentication.
-   - **Example**:
-     - System administrators use SSH to remotely manage and configure servers securely over the internet.
+**Important Points for Exam:**
+- Telnet operates on **port 23**.
+- **Commands:** Basic commands to know include `open` (to start a connection) and `quit` (to end a session).
+- **Limited Use:** Primarily used in internal networks or legacy systems, with SSH as a more secure alternative.
 
 ---
 
-### 10. **SNMP (Simple Network Management Protocol)**
-   - **Purpose**: Used to monitor and manage network devices such as routers, switches, servers, and printers.
-   - **Port**: UDP Port 161 (for queries) and UDP Port 162 (for notifications).
-   - **How it Works**:
-     - SNMP allows network administrators to query devices for information, like bandwidth usage, device status, etc.
-     - Devices are equipped with **SNMP agents** that collect data and communicate with the **SNMP manager**.
-   - **Components**:
-     - **Managed Devices**: Network devices being monitored.
-     - **SNMP Agent**: Software on a managed device that collects data.
-     - **SNMP Manager**: The software or system that queries and collects data from SNMP agents.
-     - **MIB (Management Information Base)**: A database that defines what information can be queried (like CPU usage or bandwidth).
-   - **Example**:
-     - A network administrator uses SNMP to check the status of network switches and routers to detect issues.
----
+### **7. SSH (Secure Shell)**
+SSH is a protocol that provides secure, encrypted remote access to devices, enabling safe data exchange and remote command execution over an unsecured network.
 
-### 11. **NTP (Network Time Protocol)**
-   - **Purpose**: Synchronizes the clocks of computers over a network.
-   - **Port**: UDP Port 123.
-   - **How it Works**:
-     - NTP allows devices to synchronize their system time with a reliable time source (like an atomic clock) over the internet.
-   - **Components**:
-     - **NTP Server**: A time server that provides accurate time.
-     - **NTP Client**: A device that syncs its clock with the NTP server.
-   - **Example**:
-     - Servers use NTP to maintain accurate system clocks, which is critical for security protocols, log files, and scheduling tasks.
----
+**SSH Features:**
+1. **Encryption:** SSH encrypts all data, securing both the session and login credentials.
+2. **Authentication Methods:** Supports password-based and public-private key authentication, increasing security.
+3. **Tunneling:** Allows for secure tunneling of other protocols (like FTP) through the SSH connection.
+4. **Port Forwarding:** SSH can forward traffic securely by encapsulating it, allowing secure communication between devices behind firewalls.
 
-### 12. **DHCP (Dynamic Host Configuration Protocol)**
-   - **Purpose**: Automatically assigns IP addresses and other network configuration settings to devices on a network.
-   - **Port**: UDP Port 67 (server) and UDP Port 68 (client).
-   - **How it Works**:
-     - When a device joins a network, it sends a DHCP request to the DHCP server.
-     - The DHCP server assigns the device an available IP address, along with the subnet mask, default gateway, and DNS server information.
-   - **Components**:
-     - **DHCP Client**: The device requesting network configuration.
-     - **DHCP Server**: The server that assigns IP addresses.
-   - **Example**:
-     - A smartphone connects to a Wi-Fi network, and the DHCP server assigns it an IP address automatically.
----
+**Security Benefits:**
+- **Encryption:** SSH protects against eavesdropping, MITM (Man-in-the-Middle) attacks, and credential theft.
+- **Authentication and Integrity:** Uses public-key cryptography to authenticate users and ensure data integrity.
+- **SCP and SFTP:** SSH also provides secure file transfer options through SCP (Secure Copy Protocol) and SFTP (SSH File Transfer Protocol).
 
-### 13. **LDAP (Lightweight Directory Access Protocol)**
-   - **Purpose**: Provides a way to access and manage distributed directory information services over a network.
-   - **Port**: TCP Port 389 (unencrypted) and TCP Port 636 (LDAPS, encrypted).
-   - **How it Works**:
-     - LDAP is used for accessing directory services, which contain information like usernames, passwords, and network resource locations (like printers).
-   - **Components**:
-     - **LDAP Client**: Queries the directory service.
-     - **LDAP Server**: Holds the directory data and responds to queries.
-     - **Directory Information Tree (DIT)**: Hierarchical structure of directory entries.
-   - **Example**:
-     - Organizations use LDAP to store and retrieve information about employees, computers, printers, etc., within a network.
+**Important Points for Exam:**
+- SSH operates on **port 22**.
+- **Key Authentication:** Understand SSH’s use of public-private key pairs for authentication.
+- **Commands:** Commands include `ssh` (to initiate a session), `scp` (for secure file transfer), and `exit` (to end a session).
 
 ---
 
-### 14. **TFTP (Trivial File Transfer Protocol)**
-   - **Purpose**: A simplified version of FTP, used for transferring files without requiring authentication.
-   - **Port**: UDP Port 69.
-   - **How it Works**:
-     - TFTP is used in situations where minimal file transfer overhead is required, such as in network booting or transferring configuration files to network devices.
-   - **Components**:
-     - **TFTP Client**: Initiates the file transfer request.
-     - **TFTP Server**: Stores the files and responds to client requests.
-   - **Example**:
-     - Network routers may use TFTP to download firmware updates or configuration files during startup.
+### **8. SNMP (Simple Network Management Protocol)**
+SNMP is a protocol used for monitoring, managing, and configuring network devices. It is commonly used by network administrators to monitor network health and manage devices like routers, switches, servers, and workstations.
+
+**SNMP Components:**
+1. **Managed Devices:** Network devices equipped with SNMP-compatible software agents.
+2. **SNMP Agent:** Software running on each managed device that collects and communicates data to the network management system (NMS).
+3. **Network Management System (NMS):** A centralized system that monitors and controls managed devices using SNMP.
+
+**SNMP Operations:**
+- **GET Request:** The NMS retrieves data from an SNMP agent on a managed device.
+- **SET Request:** The NMS modifies a parameter on the device.
+- **TRAP:** An alert from the agent to the NMS when specific events occur (e.g., device failure).
+- **INFORM:** A message similar to a TRAP, but requires acknowledgment from the NMS.
+
+**SNMP Versions:**
+- **SNMPv1:** Basic features, lacking security mechanisms.
+- **SNMPv2c:** Added bulk transfers and improved performance but still lacks strong security.
+- **SNMPv3:** Introduced user-based security with message encryption and authentication.
+
+**Security Concerns:**
+- **Data Sensitivity:** SNMPv1 and SNMPv2c lack encryption, allowing attackers to intercept sensitive data.
+- **SNMPv3 Security:** SNMPv3 supports encryption, integrity, and authentication, significantly improving security.
+
+**Important Points for Exam:**
+- **Ports:** SNMP typically uses **port 161** for requests and **port 162** for TRAPs.
+- **OID (Object Identifier):** Unique identifiers for each managed object, allowing for granular device monitoring.
+- **Community Strings:** In SNMPv1 and v2c, community strings (like passwords) control access to the SNMP agent, with "public" being a default community string—this is a common security risk.
 
 ---
 
-This concludes the detailed explanation of important **Application Layer Protocols**. Each of these protocols plays a vital role in enabling different types of communication, data transfer, and network management in computer networks. 
+### **Summary Table of Key Ports for Protocols**
 
-
-### Internet application protocols 
-
-### 1. **HTTP (Hypertext Transfer Protocol)**
-  
-  
-### 2. **HTTPS (HTTP Secure)**
-   
-
-### 3. **DNS (Domain Name System)**
-   
-
-### 4. **SMTP (Simple Mail Transfer Protocol)**
-  
-
-### 5. **IMAP (Internet Message Access Protocol)**
-  
-
-### 6. **POP3 (Post Office Protocol v3)**
-  
-
-### 7. **FTP (File Transfer Protocol)**
-
-### 8. **SFTP (Secure File Transfer Protocol)**
-   - **Concept**: SFTP is a secure version of FTP that uses SSH (Secure Shell) to encrypt data transfer, ensuring security over the network.
-   - **Sub-Concepts**:
-     - **SSH Tunneling**: SFTP operates within an encrypted SSH session, providing secure file transfer, unlike FTP, which transmits data in plaintext.
-     - **Authentication**: Uses SSH keys or passwords for authentication.
-   - **Example**: A system administrator uses SFTP to securely transfer configuration files to a remote server over the internet.
-
-### 9. **Telnet**
-  
-### 10. **SSH (Secure Shell)**
-   - **Concept**: SSH provides a secure, encrypted way to remotely log into a machine and execute commands, replacing Telnet for secure communications.
-   - **Sub-Concepts**:
-     - **Encryption**: SSH encrypts all data transferred, ensuring confidentiality and integrity.
-     - **Key-Based Authentication**: SSH can use public-private key pairs for authentication, enhancing security.
-     - **Tunneling**: SSH can be used to create secure tunnels for transferring other protocols (e.g., HTTP, FTP) over an encrypted connection.
-   - **Example**: A developer uses SSH to securely log into a cloud server to deploy code or manage applications.
-
-### 11. **LDAP (Lightweight Directory Access Protocol)**
-  
-### 12. **DHCP (Dynamic Host Configuration Protocol)**
-   
-### 13. **NTP (Network Time Protocol)**
-
-### 14. **SNMP (Simple Network Management Protocol)**
-
-### 15. **RIP (Routing Information Protocol)**
-  
-
-### 16. **BGP (Border Gateway Protocol)**
-  
-### 17. **RDP (Remote Desktop Protocol)**
-   - **Concept**: RDP is a protocol developed by Microsoft to allow users to connect to and control another computer over a network connection using a graphical interface.
-   - **Sub-Concepts**:
-     - **Remote Control**: Users can see and interact with the desktop of the remote machine as if they were physically present.
-     - **Secure Connection**: RDP uses encryption to secure the communication between the client and the remote server.
-   - **Example**: A user at home can use RDP to connect to their work computer and access files or run applications as if they were sitting in front of it.
-
-### 18. **TFTP (Trivial File Transfer Protocol)**
-  
-### 19. **VoIP (Voice over Internet Protocol)**
-   - **Concept**: VoIP allows voice communication over IP networks (e.g., the internet) instead of traditional telephone lines.
-   - **Sub-Concepts**:
-     - **Codec**: VoIP uses audio codecs to compress and decompress voice signals to make them suitable for transmission over IP networks.
-     - **SIP (Session Initiation Protocol)**: A protocol used to establish, manage, and terminate VoIP calls.
-     - **RTP (Real-time Transport Protocol)**: Used for transmitting audio and video over IP networks during VoIP calls.
-   - **Example**: Applications like Skype or Zoom use VoIP to enable users to make voice and video calls over the internet.
+| **Protocol** | **Port(s)**            | **Purpose**                                           |
+|--------------|-------------------------|-------------------------------------------------------|
+| **DNS**      | 53                      | Domain name resolution                                |
+| **HTTP**     | 80                      | Web traffic (unencrypted)                             |
+| **HTTPS**    | 443                     | Secure web traffic                                    |
+| **FTP**      | 20 (data), 21 (control) | File transfer (plaintext)                             |
+| **SMTP**     | 25 (unsecured), 587/465 | Email sending (secure on 587/465)                     |
+| **POP3**     | 110 (unsecured), 995    | Email retrieval (unsecured and secured)               |
+| **IMAP**     | 143 (unsecured), 993    | Email retrieval and synchronization                   |
+| **Telnet**   | 23                      | Remote CLI access (plaintext, unsecured)              |
+| **SSH**      | 22                      | Secure remote CLI access and file transfer            |
+| **SNMP**     | 161 (agent), 162 (TRAP) | Network management and monitoring                     |
 
 ---
 
-This concludes the detailed breakdown of key internet application protocols. These protocols, collectively, form the backbone of communication over networks, enabling tasks like web browsing, file transfer, email communication, network management, and more.
+This covers each protocol's core concepts, functionalities, security aspects, and critical exam-relevant points. 
