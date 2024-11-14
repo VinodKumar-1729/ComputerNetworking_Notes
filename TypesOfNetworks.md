@@ -2,56 +2,98 @@
 
 ### Types of Computer Networks
 
+#### 1. Personal Area Network (PAN)
+- **Definition**: PAN is designed for personal devices to connect within a short range (usually up to 10 meters).
+- **Technologies Used**: Bluetooth, Zigbee, and Infrared (IrDA).
+- **Applications**: Connecting devices like smartphones, laptops, printers, and other personal devices.
+- **Key Characteristics**:
+  - **Range**: 1-10 meters.
+  - **Cost**: Low; easily set up and portable.
+  - **Transmission Speed**: High within a short range.
 
-#### 1. **Personal Area Network (PAN)**
-   - **Purpose**: Connects devices within a short range, typically around a single user.
-   - **Technology Used**: Bluetooth, Infrared (IrDA), Zigbee.
-   - **Range**: ~1 to 100 meters.
-   - **Transmission Speed**: High (variable based on technology).
-   - **Applications**: Home, medical, offices, and educational sectors.
-   - **Additional Point**: **Wireless PAN (WPAN)** is often implemented using Bluetooth, making it useful in wearable tech and IoT devices.
+  **Competitive Edge Points**:
+  - PAN is ideal for applications requiring low energy, like wearables.
+  - It can support both wired (USB) and wireless technologies, enhancing versatility.
+  
+#### 2. Local Area Network (LAN)
+- **Definition**: LAN connects computers within a small area, such as a building or campus.
+- **Technologies Used**: Ethernet and Wi-Fi.
+- **Applications**: Schools, offices, home networking.
+- **Key Characteristics**:
+  - **Range**: Up to 2 km.
+  - **Cost**: Moderate; typically inexpensive hardware.
+  - **Transmission Speed**: Very high (up to 1 Gbps or more).
+  - **Ownership**: Private.
+  
+  **Competitive Edge Points**:
+  - LAN offers high data transfer rates and low latency, making it suitable for tasks requiring speed, like file sharing and gaming.
+  - Commonly supports a variety of devices due to Ethernet and Wi-Fi compatibility.
+
+#### 3. Campus Area Network (CAN)
+- **Definition**: CAN is designed for multiple buildings in a campus setting, such as a school or university.
+- **Technologies Used**: Ethernet or fiber optics.
+- **Applications**: College campuses, business parks.
+- **Key Characteristics**:
+  - **Range**: 1-5 km.
+  - **Cost**: Moderate; often uses a centralized management system.
+  - **Transmission Speed**: High.
+  
+  **Competitive Edge Points**:
+  - CANs often employ VLANs (Virtual LANs) for network segmentation and security, allowing efficient data management across different departments.
+  - Advanced CANs use hybrid systems (Ethernet for internal connections and fiber optics for inter-building connections) for enhanced speed and reliability.
+
+#### 4. Metropolitan Area Network (MAN)
+- **Definition**: MAN spans a city or large campus, covering distances of up to 50 km.
+- **Technologies Used**: Fiber Distributed Data Interface (FDDI), Asynchronous Transfer Mode (ATM), and fiber optics.
+- **Applications**: City-wide networks, large university campuses.
+- **Key Characteristics**:
+  - **Range**: 5-50 km.
+  - **Cost**: High; complex setup and maintenance.
+  - **Transmission Speed**: Moderate.
+  - **Ownership**: Private or Public.
+  
+  **Competitive Edge Points**:
+  - MANs are often used by ISPs for city-wide internet access; dual bus architecture supports high-speed bidirectional data flow.
+  - MANs allow centralized management, making them ideal for city-wide monitoring systems or transport networks.
+
+#### 5. Wide Area Network (WAN)
+- **Definition**: WAN connects devices over large geographical distances, such as between cities or countries.
+- **Technologies Used**: Leased lines, dial-up, and satellite.
+- **Applications**: The Internet, corporate networks.
+- **Key Characteristics**:
+  - **Range**: Above 50 km.
+  - **Cost**: Very high; requires dedicated infrastructure and high maintenance.
+  - **Transmission Speed**: Low to moderate.
+  - **Ownership**: Typically public, but private WANs exist for businesses.
+  
+  **Competitive Edge Points**:
+  - WANs use redundancy and load balancing to enhance reliability.
+  - Virtual Private Networks (VPNs) are often deployed on WANs to provide secure remote access.
 
 ---
 
-#### 2. **Local Area Network (LAN)**
-   - **Purpose**: Connects computers and devices in a limited area like homes, schools, or offices.
-   - **Technology Used**: Ethernet, Wi-Fi.
-   - **Range**: Up to 2 km.
-   - **Transmission Speed**: Very High (usually between 100 Mbps to several Gbps).
-   - **Applications**: Office and home networking, computer labs, and libraries.
-   - **Additional Point**: LANs are often enhanced with **Power over Ethernet (PoE)** technology, which reduces the need for separate power cables for network devices like IP cameras and VoIP phones.
+### Internetworking
+- **Definition**: Internetworking is the process of connecting multiple computer networks (such as LANs and WANs) using intermediary devices like routers.
+- **Types of Internetworks**:
+  - **Intranet**: A private network accessible only within an organization, enhancing internal communication.
+  - **Extranet**: An extension of an intranet that grants limited access to external partners, clients, or stakeholders.
+  - **Internet**: A global network that interconnects millions of private, public, academic, business, and government networks.
+
+  **Competitive Edge Points**:
+  - **Intranet Security**: Intranets offer secure information sharing within organizations, usually protected by firewalls.
+  - **VPN Use in Extranet**: Extranets often use VPNs to safely extend network access to external entities.
 
 ---
 
-#### 3. **Campus Area Network (CAN)**
-   - **Purpose**: Connects multiple LANs across a campus or corporate buildings.
-   - **Technology Used**: Ethernet, Fiber optics.
-   - **Range**: Typically 1 – 5 km.
-   - **Transmission Speed**: High; varies by deployment but generally fast within the campus.
-   - **Applications**: University campuses, industrial areas, and large office buildings.
-   - **Additional Point**: CANs benefit from a centralized network administration, which allows efficient monitoring and control of data flow within a confined area.
+### Summary Table
 
----
-
-#### 4. **Metropolitan Area Network (MAN)**
-   - **Purpose**: Connects LANs across a metropolitan area, typically a city.
-   - **Technology Used**: Fiber Distributed Data Interface (FDDI), Synchronous Optical Network (SONET), ATM.
-   - **Range**: 5 to 50 km.
-   - **Transmission Speed**: Moderate to High.
-   - **Applications**: City-wide networks, telecoms, internet providers.
-   - **Correction**: Transmission speed and fault tolerance are medium, with redundancy often introduced via **dual-ring topologies** to enhance resilience.
-   - **Additional Point**: A MAN can employ **ring-based redundancy** to provide better fault tolerance than many standard LANs.
-
----
-
-#### 5. **Wide Area Network (WAN)**
-   - **Purpose**: Connects computers and LANs across large geographic distances, often globally.
-   - **Technology Used**: Leased Lines, MPLS, Satellite Links.
-   - **Range**: Above 50 km, typically nationwide or global.
-   - **Transmission Speed**: Variable (often lower than LANs or MANs due to distance and congestion).
-   - **Applications**: The Internet, multinational organizations.
-   - **Correction**: WANs, although slower in speed, are often built on **Multiprotocol Label Switching (MPLS)** for optimized routing.
-   - **Additional Point**: **SD-WAN** (Software-Defined WAN) is increasingly used in WANs to manage and optimize bandwidth and routing flexibly over multiple network paths.
+| **Network Type** | **Technology**                     | **Range**      | **Transmission Speed** | **Ownership**        | **Cost**           | **Maintenance**         |
+|------------------|------------------------------------|----------------|------------------------|----------------------|---------------------|-------------------------|
+| PAN              | Bluetooth, Zigbee, USB            | 1-10 m        | Very High              | Private              | Very Low           | Very Easy               |
+| LAN              | Ethernet, Wi-Fi                   | Up to 2 km    | Very High              | Private              | Moderate           | Easy                    |
+| CAN              | Ethernet, Fiber Optics            | 1-5 km        | High                   | Private              | Moderate           | Moderate                |
+| MAN              | FDDI, ATM, Fiber Optics           | 5-50 km       | Moderate               | Private or Public    | High               | Difficult               |
+| WAN              | Leased Line, Satellite, Dial-up   | Above 50 km   | Low to Moderate        | Private or Public    | Very High          | Very Difficult          |
 
 ---
 
