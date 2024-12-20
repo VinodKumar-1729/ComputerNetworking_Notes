@@ -73,3 +73,4 @@ Key components include:
 - Advances in physical layer technologies, such as 5G and optical fiber systems, continue to improve speed, reliability, and efficiency.
 - Understanding physical layer protocols and topologies is critical for designing efficient and reliable networks.
 
+**GFG Link :** https://www.geeksforgeeks.org/physical-layer-in-osi-model/
